@@ -1,128 +1,256 @@
-/* Google Fonts - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GGPC Cover Slides</title>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
+    <style>
+        /* Google Fonts - Poppins */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .wrapper,
+        .slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            overflow: hidden;
+        }
+
+        .slide .image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay Text */
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 20;
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeIn 1s ease-out 0.5s forwards;
+        }
+
+        .overlay h1 {
+            font-size: 70px;
+            font-weight: 600;
+            color: #035196;
+            text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+            line-height: 1.1;
+        }
+
+        .overlay h2 {
+            font-size: 40px;
+            font-weight: 600;
+            text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay span {
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 2;
+            color: #dbeaf8;
+            text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Keyframe for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Ensure overlay appears only on the active slide */
+        .swiper-slide-active .overlay {
+            opacity: 1;
+            visibility: visible;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Pagination bullets */
+        .swiper-pagination-bullet {
+            opacity: 1;
+            height: 12px;
+            width: 12px;
+            background-color: #fff;
+            visibility: hidden;
+        }
+
+        .swiper-pagination-bullet-active {
+            border: 2px solid #fff;
+            background-color: #c87e4f;
+        }
+
+        @media screen and (max-width: 768px) {
+            .swiper-pagination-bullet {
+                visibility: visible;
+            }
+        }
+
+        /* Credits text */
+        .credits {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 400;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            z-index: 30;
+        }
+
+/* Tagline Animation */
+.tagline {
+    font-size: 60px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    text-align: center;
+    width: 90%;
+    opacity: 0;
+    line-height: 1;
+    animation: taglineBounceIn 1.5s ease forwards, 
+               taglineGlow 5s ease forwards 2s,  /* Slowed down glow */
+               taglineFadeOut 1s ease 6.5s forwards;
 }
 
-.main {
-  height: 100vh;
-  width: 100%;
+/* Zoom In Effect */
+@keyframes taglineZoomIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5); /* Start smaller for more emphasis */
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2); /* Zoom in more */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1); /* Set to normal size */
+    }
 }
 
-.wrapper,
-.slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* Striking Effect */
+@keyframes taglineStrike {
+    0% {
+        opacity: 1;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+    50% {
+        text-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
+    }
+    100% {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
 }
 
-.slide {
-  overflow: hidden;
+/* Glow Effect */
+@keyframes taglineGlow {
+    0% {
+        text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    }
+    50% {
+        text-shadow: 0px 0px 30px rgba(255, 255, 255, 1);
+    }
+    100% {
+        text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+    }
 }
 
-.slide::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 10;
+/* Ensure tagline only animates on the active slide */
+.swiper-slide-active .tagline {
+    animation: taglineZoomIn 2.5s ease-out forwards, taglineStrike 1s ease-in-out 1s forwards; /* Longer zoom-in */
+    animation-delay: 0s, 1s;
 }
 
-.slide .image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+    </style>
+</head>
+<body>
+    <section class="main swiper mySwiper">
+        <div class="wrapper swiper-wrapper">
+            <!-- First Slide with Welcome Message -->
+            <div class="slide swiper-slide">
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/826207c6a75186e636731f0b6a21d891d04f85e2/img1.png" alt="Image 1" class="image" />
+                <div class="overlay">
+                    <h2>Welcome to </h2>
+                    <h1>Gunma Gohkin Philippines</h1>
+                    <span>Website</span>
+                </div>
+                <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
+            </div>
+            <!-- Second Slide with Impactful Tagline and Fade-In Intro -->
+            <div class="slide swiper-slide">
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/76ab0e3f5c9786f4d0571dec74a047c302377cf1/img2.jpg" alt="Image 2" class="image" />
+                <div class="tagline">Casting Excellence, 
+                    <br>Moulding the Future.</div>
+                <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
+            </div>
+            <!-- Third Slide -->
+            <div class="slide swiper-slide">
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/b2b6fa9c9a20c1da9564df06e8e6e2585517e6fa/img3.jpg" alt="Image 3" class="image" />
+                <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
+            </div>
+        </div>
 
-.slide .image-data {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-  z-index: 100;
-}
+        <div class="swiper-pagination"></div>
+    </section>
 
-.image-data span.text {
-  font-size: 14px;
-  font-weight: 400;
-  color: #fff;
-}
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-.image-data h2 {
-  font-size: 45px;
-  font-weight: 600;
-  color: #fff;
-}
-
-a.button {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 25px;
-  color: #333;
-  background: #fff;
-  text-decoration: none;
-  margin-top: 25px;
-  transition: all 0.3s ease;
-}
-
-a.button:hover {
-  color: #fff;
-  background-color: #c87e4f;
-}
-
-/* swiper button css */
-.nav-btn {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.swiper-button-next {
-  right: 50px;
-}
-
-.swiper-button-prev {
-  left: 50px;
-}
-
-.nav-btn::before,
-.nav-btn::after {
-  font-size: 25px;
-  color: #fff;
-}
-
-.swiper-pagination-bullet {
-  opacity: 1;
-  height: 12px;
-  width: 12px;
-  background-color: #fff;
-  visibility: hidden;
-}
-
-.swiper-pagination-bullet-active {
-  border: 2px solid #fff;
-  background-color: #c87e4f;
-}
-
-@media screen and (max-width: 768px) {
-  .nav-btn {
-    visibility: hidden;
-  }
-
-  .swiper-pagination-bullet {
-    visibility: visible;
-  }
-}
-
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            loop: true,
+            autoplay: {
+                delay: 7000, // 7 seconds delay between slides
+                disableOnInteraction: false,
+            },
+            speed: 1000, // Transition effect duration in milliseconds
+            effect: "fade", // Apply fade effect
+            fadeEffect: {
+                crossFade: true, // Smooth dissolve transition
+            },
+        });
+    </script>
+</body>
+</html>
