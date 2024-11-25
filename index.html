@@ -58,6 +58,13 @@
             opacity: 90%;
         }
 
+        .slide .image5{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            opacity: 80%;
+        }
+
         /* Overlay Text */
         .overlay {
             position: absolute;
@@ -73,7 +80,7 @@
         }
 
         .overlay h1 {
-            font-size: 70px;
+            font-size: 80px;
             font-weight: 600;
             color: #035196;
             text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
@@ -81,13 +88,13 @@
         }
 
         .overlay h2 {
-            font-size: 40px;
+            font-size: 45px;
             font-weight: 600;
             text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
         }
 
         .overlay span {
-            font-size: 40px;
+            font-size: 45px;
             font-weight: 500;
             line-height: 2;
             color: #dbeaf8;
@@ -147,7 +154,7 @@
 
 /* Tagline Animation */
 .tagline {
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 900;
     letter-spacing: 2px;
     color: #0621bf;
@@ -215,9 +222,29 @@
     animation-delay: 0s, 1s;
 }
 
+.tagline21 {
+    
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    text-align: center;
+    width: 90%;
+    opacity: 5%;
+    transition: opacity 0.3s ease;
+    line-height: 1.3;
+    animation: tagline2FadeIn 1.5s ease-out forwards;
+}
 
 /* Improved Tagline2 Styling and Animation */
 .tagline2 {
+    
     font-size: 60px;
     font-weight: 900;
     letter-spacing: 2px;
@@ -225,15 +252,18 @@
     text-transform: uppercase;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     position: absolute;
-    top: 12%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
     text-align: center;
     width: 90%;
     opacity: 0;
+    transition: opacity 0.3s ease;
     line-height: 1.3;
     animation: tagline2FadeIn 1.5s ease-out forwards;
 }
+
+
 
 /* Fade-In and Scale Animation */
 @keyframes tagline2FadeIn {
@@ -253,6 +283,44 @@
     animation: tagline2FadeIn 1.5s ease-out forwards, tagline2Glow 3s ease-in-out 1s forwards;
 }
 
+/* Tagline3 Styling */
+.tagline3 {
+    font-size: 65px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    text-align: left;
+    width: 90%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    line-height: 1.3;
+    animation: tagline3FadeIn 1.5s ease-out forwards;
+}
+
+/* Fade-In Animation for the tagline text */
+@keyframes tagline3FadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Ensure tagline3 animation occurs only on the third slide */
+.swiper-slide:nth-child(3) .tagline3 {
+    animation: tagline3FadeIn 1.5s ease-out forwards, tagline3SlideIn 1.5s ease-out 1.5s forwards;
+}
+
+
     </style>
 </head>
 <body>
@@ -260,7 +328,7 @@
         <div class="wrapper swiper-wrapper">
             <!-- First Slide with Welcome Message -->
             <div class="slide swiper-slide">
-                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/7dbefdb1a30b01c8bdb0861877714049795ce170/IMG_4863.HEIC" alt="Image 1" class="image" />
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/4b01cb2a0e333e711f4f112efa7c82ee74ec4557/ggpc%20panoramic.png" alt="Image 1" class="image" />
                 <div class="overlay">
                     <h2>Welcome to </h2>
                     <h1>Gunma Gohkin Philippines</h1>
@@ -280,15 +348,29 @@
             <!-- Third Slide -->
             <div class="slide swiper-slide">
                 <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/f904f92b9340ac7c19f0cfa739d38442476397d9/Untitled%20design%20(2).png" alt="Image 3" class="image3" />
-                <div class="tagline2">Business Sustainability, <br>Constantly Evolving.</div>
-
+                <div class="tagline21">Cavite Plant</div>
                 <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
             </div>
  
-
-              <!-- 4th Slide -->
+            <!-- 4th Slide -->
             <div class="slide swiper-slide">
-                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/76ab0e3f5c9786f4d0571dec74a047c302377cf1/img2.jpg" alt="Image 4" class="image" />
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/4b01cb2a0e333e711f4f112efa7c82ee74ec4557/Untitled%20design%20(9).png" alt="Image 4" class="image" />
+                <div class="tagline2">Business Sustainability, <br>Constantly Evolving.</div>
+                <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
+            </div>
+
+              <!-- 5th Slide -->
+              <div class="slide swiper-slide">
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/4b01cb2a0e333e711f4f112efa7c82ee74ec4557/Diecasting%20top%20vieeew.png" alt="Image 5" class="image5" />
+                <div class="tagline3">Mastering Die-Casting <br>
+                    <span>Meticulous Precision</span></div>
+                <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
+            </div>
+            
+             <!-- 6th Slide -->
+             <div class="slide swiper-slide">
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/4b01cb2a0e333e711f4f112efa7c82ee74ec4557/Diecasting%20top%20vieeew.png" alt="Image 5" class="image5" />
+                <div class="tagline3">Customer Satisfaction</div>
                 <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
             </div>
             
