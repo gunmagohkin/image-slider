@@ -51,6 +51,13 @@
             opacity: 87%;
         }
 
+        .slide .image3{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            opacity: 90%;
+        }
+
         /* Overlay Text */
         .overlay {
             position: absolute;
@@ -209,52 +216,42 @@
 }
 
 
-    /* Tagline 2 Animation */
-    .tagline2 {
-        font-size: 70px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: #0621bf;
-        text-transform: uppercase;
-        text-shadow: 1px 1px 2px rgb(255, 255, 255);
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.5);
-        text-align: left;
-        width: 90%;
+/* Improved Tagline2 Styling and Animation */
+.tagline2 {
+    font-size: 60px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    text-align: center;
+    width: 90%;
+    opacity: 0;
+    line-height: 1.3;
+    animation: tagline2FadeIn 1.5s ease-out forwards;
+}
+
+/* Fade-In and Scale Animation */
+@keyframes tagline2FadeIn {
+    0% {
         opacity: 0;
-        line-height: 1;
-        animation: tagline2Intro 2.5s ease-out forwards, 
-                   taglineGlow 5s ease forwards 2s,
-                   taglineFadeOut 1s ease 6.5s forwards;
+        transform: translate(-50%, -50%) scale(0.8);
     }
-
-    /* Tagline2 Intro Animation */
-    @keyframes tagline2Intro {
-        0% {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(0.8) rotate(-10deg);
-        }
-        40% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
-        }
-        100% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1) rotate(0deg);
-        }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
     }
+}
 
-    /* Apply unique animation to the second slide */
-    .swiper-slide:nth-child(2) .tagline {
-        animation: none; /* Remove default animation */
-    }
 
-    .swiper-slide:nth-child(2) .tagline2 {
-        animation: tagline2Intro 2.5s ease-out forwards, taglineGlow 5s ease forwards 2s;
-    }
-
+/* Ensure tagline2 appears only on the second slide */
+.swiper-slide:nth-child(2) .tagline2 {
+    animation: tagline2FadeIn 1.5s ease-out forwards, tagline2Glow 3s ease-in-out 1s forwards;
+}
 
     </style>
 </head>
@@ -263,7 +260,7 @@
         <div class="wrapper swiper-wrapper">
             <!-- First Slide with Welcome Message -->
             <div class="slide swiper-slide">
-                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/826207c6a75186e636731f0b6a21d891d04f85e2/img1.png" alt="Image 1" class="image" />
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/7dbefdb1a30b01c8bdb0861877714049795ce170/IMG_4863.HEIC" alt="Image 1" class="image" />
                 <div class="overlay">
                     <h2>Welcome to </h2>
                     <h1>Gunma Gohkin Philippines</h1>
@@ -282,9 +279,9 @@
                 
             <!-- Third Slide -->
             <div class="slide swiper-slide">
-                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/f904f92b9340ac7c19f0cfa739d38442476397d9/Untitled%20design%20(2).png" alt="Image 3" class="image" />
-                <div class="tagline2">Business Sustainability, 
-                    <br>Constantly Evolving.</div>
+                <img src="https://raw.githubusercontent.com/gunmagohkin/image-slider/f904f92b9340ac7c19f0cfa739d38442476397d9/Untitled%20design%20(2).png" alt="Image 3" class="image3" />
+                <div class="tagline2">Business Sustainability, <br>Constantly Evolving.</div>
+
                 <div class="credits"><i>© 2024 Gunma Gohkin Philippines Corporation | All Rights Reserved</i></div>
             </div>
  
