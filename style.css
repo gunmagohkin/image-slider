@@ -323,3 +323,46 @@ animation: tagline3FadeIn 1.5s ease-out forwards, tagline3SlideIn 1.5s ease-out 
     line-height: 1.3;
     animation: tagline3FadeIn 1.5s ease-out forwards;
     }
+
+    /* Ensure images scale properly on mobile */
+.image, .image2, .image3, .image4, .image5, .image6 {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+/* Adjust overlay positioning for smaller screens */
+.overlay, .tagline, .tagline2, .tagline3, .tagline4, .tagline21 {
+    position: absolute;
+    width: 90%; /* Ensure content fits within screen bounds */
+    max-width: 100%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Adjust font sizes for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .tagline, .tagline2, .tagline3, .tagline4, .tagline21 {
+        font-size: 20px;
+    }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    .tagline, .tagline2, .tagline3, .tagline4, .tagline21 {
+        font-size: 18px;
+    }
+}
